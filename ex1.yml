@@ -1,0 +1,14 @@
+---
+name: my first playbook
+hosts: all
+remote_user: ansadmin
+become: true
+become_method: sudo
+become_user: ansadmin
+tasks:
+    - name: start httpd service
+      service: name=httpd enable=true
+    - name: start sql service
+      service: name=sqld enable=true
+    - name: start oracle service
+      service: name=oracled enable=true

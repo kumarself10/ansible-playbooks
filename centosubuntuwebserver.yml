@@ -1,0 +1,21 @@
+- hosts: all
+  become: yes
+  become_method: sudo
+  become_user: root 
+  tasks:
+  - name: Install webserver this way
+    apt: name=apache2 update_cache=yes state=latest
+    notify: start apache2
+    when: ansible_os_family == "Debian"
+
+  - name: Install webserver that way
+    yum: name=httpd state=latest
+    notify: start httpd
+    when: ansible_os_family == "Redhat"
+
+  handlers:
+   - name: start apache2
+     service: name=apache2 enabled=yes state=started
+
+   - name: start httpd
+     service: name=httpd enabled=yes state=started

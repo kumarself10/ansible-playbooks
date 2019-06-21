@@ -1,0 +1,22 @@
+- hosts: all
+  tasks:
+  - block
+    - name: First package tast
+      yum:
+        name: httpd
+        state: latest
+    - name: second package task
+      yum:
+        name: openssh-server
+        state: latest
+  - block
+    - name: first service task
+      service:
+        name: httpd
+        enabled: true
+        state: started
+    - name: second service task
+      service:
+        name: sshd
+        enabled: true
+        state: started    

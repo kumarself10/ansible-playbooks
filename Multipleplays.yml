@@ -1,0 +1,16 @@
+- name: first play
+  hosts: webserver.example.com
+  tasks:
+  - name: web server install
+      yum:
+        name: httpd
+        state: latest
+
+- name: second play
+  hosts: dbserver.example.com
+  tasks:
+  - name: DB server install
+      yum: 
+        name: mysql-server
+        state: latest
+

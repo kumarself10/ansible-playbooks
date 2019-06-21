@@ -1,0 +1,31 @@
+- name: my tree package playbook
+  hosts: all
+  remote_user: centos
+  become: true
+  become_method: sudo
+  become_user: root
+  tasks:
+    - name: my first task to install tree
+      yum:
+        name: tree
+        state: present
+    - name: install git task
+      yum:
+        name: git
+        state: present
+    - name: install telnet
+      yum:
+        name: telnet
+        state: present
+
+- name: second  playbook
+  hosts: all
+  tasks:
+   - name: install httpd
+     yum:
+       name: httpd
+       state: present
+   - name: start the httpd service
+     service:
+       name: httpd
+       state: started

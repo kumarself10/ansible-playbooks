@@ -1,0 +1,56 @@
+---
+- name: my first playbook
+  hosts: all
+  tasks:
+  - name: ping tasks
+    action: ping
+...
+
+---
+- name: second playbook
+  hosts: all
+  tasks: 
+  - name: create a file 
+    file: 
+      path: /tmp/hellofile
+      state: touch
+...
+
+---
+- name: third playbook
+  hosts: all
+  become: true
+  tasks: 
+  - name: create user
+    user: name=praveen password=praveen groups=wheel shell=/bin/bash
+...
+
+---
+- name: fourth playbook
+  hosts: all
+  become: true
+  tasks: 
+  - name: delete user
+    user: name=praveen state=absent remove=yes force=yes
+...
+
+---
+- name: fifth playbook
+  hosts: all
+  become: true
+  tasks:
+  - name: copy contents to a file
+    copy: content="Hello from Praveen\n" dest=/tmp/praveen.txt
+...
+
+---
+- name: sixth playbook
+  hosts: all
+  become: true
+  tasks:
+  - name: copy contents to a from one file to another file
+    copy: src=/tmp/praveen.txt dest=/tmp/myfile.txt
+...
+
+
+

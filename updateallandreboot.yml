@@ -1,0 +1,17 @@
+# peforms yum update and reboots the machine
+- name: perform updates and reboots server
+  hosts: all
+  remote_user: vagrant
+  become: true
+  become_method: sudo 
+  become_user: root 
+  tasks:
+  - name: perform yum update of all packages
+    yum:
+      name: '*'
+      state: latest
+  - name: reboot server
+    command: /sbin/shutdown -r +1
+    ignore_errors: true
+# - name: Reboot server
+#    reboot:

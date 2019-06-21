@@ -1,0 +1,9 @@
+- name: Add windows user
+  hosts: windows
+  gather_facts: false
+  tasks:
+  - name: add a user called ansible
+    win_user:
+      name: ansible
+      password: "Pa$$w0rd"
+      state: present
