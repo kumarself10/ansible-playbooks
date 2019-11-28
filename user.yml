@@ -8,7 +8,6 @@
  
 - name: second play
   hosts: all
-  sudo: yes
   tasks:
       - name: Create user
         user:
