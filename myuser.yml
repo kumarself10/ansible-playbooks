@@ -1,0 +1,11 @@
+- hosts: all
+  remote_user: centos
+  become: true
+  become_method: sudo
+  become_user: root
+  tasks:
+    user:
+      name: praveen
+      state: present
+      home: /home/praveen
+      shell: /bin/sh 
