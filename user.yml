@@ -2,11 +2,11 @@
   become: true
   tasks:
     - name: Create user
-        user:
-            name: mario
-            shell: /bin/zsh
+      user:
+         name: mario
+         shell: /bin/zsh
  
-      - name: Install tree
-        yum:
-            name: tree
-            state: latest
+    - name: Install tree
+       yum:
+         name: tree
+         state: latest
