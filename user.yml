@@ -1,12 +1,19 @@
 - hosts: all
-  become: true
   tasks:
-    - name: Create user
-      user:
-         name: mario
-         shell: /bin/zsh
+      - name: Create file
+        file:
+            path: /tmp/hello
+            state: touch
  
-    - name: Install tree
-      yum:
-         name: tree
-         state: latest
+- hosts: all
+  sudo: yes
+  tasks:
+      - name: Create user
+        user:
+            name: mario
+            shell: /bin/zsh
+ 
+      - name: Install tree
+        yum:
+            name: tree
+            state: latest
