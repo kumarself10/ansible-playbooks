@@ -1,5 +1,9 @@
 - name: myplay
   hosts: all
+  remote_user: centos
+  become: true
+  become_method: sudo
+  become_user: root 
   tasks:
       - name: Create file
         file:
