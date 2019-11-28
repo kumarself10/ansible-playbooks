@@ -1,11 +1,13 @@
-- hosts: all
+- name: myplay
+  hosts: all
   tasks:
       - name: Create file
         file:
             path: /tmp/hello
             state: touch
  
-- hosts: all
+- name: second play
+  hosts: all
   sudo: yes
   tasks:
       - name: Create user
