@@ -1,4 +1,4 @@
-- name: Install httpd
+- name: Install httpd sw
   hosts: all
   become: true
 
