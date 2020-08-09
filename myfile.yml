@@ -3,7 +3,7 @@
   tasks:
     - action: ping
 
-- hosts: remotenode
+- hosts: all
   tasks:
       - name: Create file
         file:
